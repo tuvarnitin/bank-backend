@@ -5,11 +5,16 @@ const app = express()
 
 const connectToDB = require("./config/db.config")
 
-app.get("/",(req,res)=>{
-    res.send("Server is running");
-})
+const authRoute = require("./routes/auth.route")
+
+
+app.use(express.json())
+
+app.use("/api/auth",authRoute)
 
 connectToDB()
+
+
 
 
 module.exports = app
