@@ -1,20 +1,14 @@
 const express = require("express")
 require("dotenv").config()
 
-const app = express()
-
+const authRoute = require("./routes/auth.route")
 const connectToDB = require("./config/db.config")
 
-const authRoute = require("./routes/auth.route")
+const app = express()
 
-
+connectToDB()
 app.use(express.json())
 
 app.use("/api/auth",authRoute)
-
-connectToDB()
-
-
-
 
 module.exports = app
