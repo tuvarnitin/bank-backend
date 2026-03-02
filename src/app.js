@@ -8,6 +8,8 @@ const connectToDB = require("./config/db.config")
 const app = express()
 
 connectToDB()
+cookieParser()
+
 app.use(express.json())
 app.use(cookieParser())
 
